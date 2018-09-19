@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lib="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
+                app:contentScrim="@color/colorSplash"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+                    <ImageView
+                        android:id="@+id/img_member"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/image" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="#56000000" />
+
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:paddingLeft="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_nb_love"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10000"
+                            android:textColor="@android:color/white" />
+
+                        <com.sackcentury.shinebuttonlib.ShineButton
+                            android:id="@+id/shine_button"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="16dp"
+                            android:src="@android:color/darker_gray"
+                            app:allow_random_color="true"
+                            app:big_shine_color="#FF6666"
+                            app:btn_color="@android:color/darker_gray"
+                            app:btn_fill_color="#FF6666"
+                            app:click_animation_duration="200"
+                            app:enable_flashing="false"
+                            app:shine_animation_duration="1500"
+                            app:shine_count="8"
+                            app:shine_distance_multiple="1.5"
+                            app:shine_turn_angle="10"
+                            app:siShape="@raw/heart"
+                            app:small_shine_color="#CC9999"
+                            app:small_shine_offset_angle="20" />
+
+                    </TableRow>
+
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin">
+
+                </android.support.v7.widget.Toolbar>
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:id="@+id/tv_detail_1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tv_detail_2"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:id="@+id/tv_detail_3"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:id="@+id/tv_detail_4"/>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+    <com.github.glomadrian.loadingballs.BallView
+        android:id="@+id/loading"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        lib:ball_colors="@array/colors"
+        lib:balls="3"
+        lib:enable_size_animation="true"
+        lib:max_ball_size="12dp"
+        lib:min_ball_size="5dp"
+        lib:movement_cycle_time="1500"
+        lib:size_cycle_time="500" />
+
+    <com.google.android.gms.ads.AdView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/banner_3"
+        ads:adUnitId="@string/banner_id_3">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

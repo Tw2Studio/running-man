@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "267303543423",
+    "firebase_url": "https://runningman-cd8c1.firebaseio.com",
+    "project_id": "runningman-cd8c1",
+    "storage_bucket": "runningman-cd8c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267303543423:android:a0d947b433d29e62",
+        "android_client_info": {
+          "package_name": "com.tw2.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267303543423-mtdb5mtib2bdud8aufuu98am75rvscke.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tw2.myapplication",
+            "certificate_hash": "3b4938708086c0654f2f5c0bb5427e938645b961"
+          }
+        },
+        {
+          "client_id": "267303543423-c9ur4tv6ldpshd9j8natksj4095mk4kl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaBpsEmdpHOpY-HHRIMP4jbt1YCl9iSPE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267303543423-c9ur4tv6ldpshd9j8natksj4095mk4kl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
