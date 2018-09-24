@@ -1,5 +1,6 @@
 package com.tw2.myapplication.view.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -7,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -15,7 +17,7 @@ import com.tw2.myapplication.R;
 import com.tw2.myapplication.adapter.HomeAdapter;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ViewPager viewPager;
     private HomeAdapter adapter;
     private TabLayout tabLayout;
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         tabLayout = (TabLayout) findViewById(R.id.home_tab_layout);
 
+        findViewById(R.id.btn_rank).setOnClickListener(this);
     }
 
     @Override
@@ -99,5 +102,14 @@ public class MainActivity extends AppCompatActivity {
             banner.destroy();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_rank:
+                Intent intent = new Intent(MainActivity.this, RankActivity.class);
+                startActivity(intent);
+        }
     }
 }

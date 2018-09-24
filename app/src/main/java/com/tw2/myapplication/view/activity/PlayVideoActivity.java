@@ -1,7 +1,9 @@
 package com.tw2.myapplication.view.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -56,6 +58,9 @@ public class PlayVideoActivity extends YouTubeBaseActivity implements YouTubePla
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_play_video);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.colorStatusBar));
+        }
         Intent intent = getIntent();
         idVideo = intent.getStringExtra("ID_VIDEO");
         requestAds();

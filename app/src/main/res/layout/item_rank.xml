@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:padding="16dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/img_rank"
+        android:layout_width="72dp"
+        android:layout_height="72dp" />
+
+    <TableRow
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_count_rank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="18dp" />
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:id="@+id/img_count_rank"
+            android:src="@android:color/darker_gray"
+            app:allow_random_color="true"
+            app:big_shine_color="#FF6666"
+            app:btn_color="@android:color/darker_gray"
+            app:btn_fill_color="#FF6666"
+            app:click_animation_duration="200"
+            app:enable_flashing="false"
+            app:shine_animation_duration="1500"
+            app:shine_count="8"
+            app:shine_distance_multiple="1.5"
+            app:shine_turn_angle="10"
+            app:siShape="@raw/heart"
+            app:small_shine_color="#CC9999"
+            app:small_shine_offset_angle="20" />
+
+
+    </TableRow>
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatar_rank"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@drawable/image"
-        android:id="@+id/img_avatar"/>
-    
+        android:src="@drawable/image" />
+
 </LinearLayout>

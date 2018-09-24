@@ -22,7 +22,7 @@
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <TableRow
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -32,7 +32,21 @@
                         android:layout_height="164dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/image" />
-                </TableRow>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="164dp"
+                        android:scaleType="fitXY"
+                        android:background="#54000000" />
+
+                    <ImageView
+                        android:id="@+id/btn_rank"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic_rank"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
 
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
@@ -50,7 +64,7 @@
                 android:background="@drawable/tab1"
                 app:tabGravity="fill"
                 app:tabMode="fixed"
-                app:tabSelectedTextColor="@android:color/white"
+                app:tabSelectedTextColor="@color/colorNau"
                 app:tabTextColor="#c7b800" />
         </android.support.v4.view.ViewPager>
 
