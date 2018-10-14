@@ -156,7 +156,7 @@
         ads:adSize="BANNER"
         android:layout_alignParentBottom="true"
         android:id="@+id/banner_3"
-        ads:adUnitId="@string/banner_id_3">
+        ads:adUnitId="@string/banner_id_5">
 
     </com.google.android.gms.ads.AdView>
 

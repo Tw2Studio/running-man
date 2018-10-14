@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void requestAds() {
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5777206290");
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5702904275");
         banner = (AdView) findViewById(R.id.banner);
         AdRequest adRequest = new AdRequest.Builder().build();
         banner.loadAd(adRequest);
