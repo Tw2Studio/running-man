@@ -1,18 +1,22 @@
 package com.tw2.myapplication.adapter;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.tw2.myapplication.R;
 import com.tw2.myapplication.view.fragment.GifFragment;
 import com.tw2.myapplication.view.fragment.GuestFragment;
 import com.tw2.myapplication.view.fragment.HomeMemberFragment;
 import com.tw2.myapplication.view.fragment.VideoFragment;
 
 public class HomeAdapter extends FragmentStatePagerAdapter {
+    private Context context;
 
-    public HomeAdapter(FragmentManager fm) {
+    public HomeAdapter(FragmentManager fm, Context context) {
         super(fm);
+        this.context =context;
     }
 
     @Override
@@ -47,16 +51,16 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
         String title = "";
         switch (position) {
             case 0:
-                title = "Thành viên";
+                title = context.getResources().getString(R.string.txt_thanhvien);
                 break;
             case 1:
-                title = "Gif hay";
+                title = context.getResources().getString(R.string.txt_gif_hay);
                 break;
             case 2:
-                title = "Khách mời";
+                title = context.getResources().getString(R.string.txt_khachmoi);
                 break;
             case 3:
-                title = "Video";
+                title = context.getResources().getString(R.string.txt_video);
                 break;
 
         }

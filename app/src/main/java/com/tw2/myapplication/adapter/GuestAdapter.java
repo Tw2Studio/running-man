@@ -39,7 +39,7 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Guest guest = data.get(position);
-        holder.tvEp.setText("Tập "+ guest.getEp());
+        holder.tvEp.setText(context.getResources().getString(R.string.txt_ep) +" "+ guest.getEp());
         holder.tvName.setText(guest.getName());
         Picasso.get().load(guest.getImage()).into(holder.imageView);
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {

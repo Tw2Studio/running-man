@@ -15,5 +15,30 @@
 
     <string name="video_appotax">/21617015150/5188250/21767295766</string>
 
+    <!--Tab main-->
+    <string name="txt_thanhvien" translatable="false">Thành viên</string>
+    <string name="txt_gif_hay" translatable="false">Gif hay</string>
+    <string name="txt_khachmoi" translatable="false">Khách mời</string>
+    <string name="txt_video" translatable="false">Video</string>
+
+    <!--Khach moi-->
+
+    <string name="txt_ep" translatable="false">Tập</string>
+
+    <!--Rank screen-->
+    <string name="txt_bxh" translatable="false">Bảng xếp hạng yêu thích</string>
+    <string name="txt_huongdan" translatable="false">Hướng dẫn vote</string>
+    <string name="txt_huongdan_1" translatable="false">- Click vào màn hình thông tin của mỗi thành viên</string>
+    <string name="txt_huongdan_2" translatable="false">- Click vào hình trái tim để vote</string>
+    <string name="txt_huongdan_3" translatable="false">- Mỗi ngày vào app bạn sẽ có 1 lượt vote</string>
+    <string name="txt_huongdan_4" translatable="false">- Ngoài ra bạn cũng có thêm lượt vote khi nhấn vào nút hộp quà và xem quảng cáo</string>
+    <string name="txt_huongdan_5" translatable="false">(Thời gian xem quảng cáo phải lớn hơn 7 giây mới được tính)</string>
+
+    <!--Video Ads-->
+
+    <string name="txt_videoad" translatable="false">Xem quảng cáo để nhận thêm 1 lượt vote cho</string>
+    <string name="txt_btn_huy" translatable="false">HỦY</string>
+    <string name="txt_btn_ok" translatable="false">OK</string>
+
 
 </resources>

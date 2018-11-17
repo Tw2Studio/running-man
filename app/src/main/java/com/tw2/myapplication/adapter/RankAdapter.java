@@ -51,7 +51,9 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         final Member member = data.get(position);
         holder.tvrank.setText(member.getLove());
         Picasso.get().load(member.getImage()).into(holder.imageView);
-        holder.imgRank.setBackgroundResource(list.get(position));
+        if (position<8) {
+            holder.imgRank.setBackgroundResource(list.get(position));
+        }
         holder.imgCount.setChecked(true);
         holder.imgCount.setEnabled(false);
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {

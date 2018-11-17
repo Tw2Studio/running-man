@@ -69,6 +69,7 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     private List<Integer> listGift;
     private RewardedVideoAd mRewardedVideoAd;
     private long timeStart, timeEnd;
+    private String checkTime;
 
 
     @Override
@@ -145,7 +146,14 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
         btnGift.setImageResource(listGift.get(random.nextInt(listGift.size())));
 
         shineButton.init(this);
-        isVote = sharedPreferences.getBoolean(name, false);
+        Calendar calendar = Calendar.getInstance();
+        String time = calendar.get(Calendar.DATE)+"-"+calendar.get(Calendar.MONTH);
+        checkTime = sharedPreferences.getString("time_"+name,"");
+        if (time.equals(checkTime)){
+            isVote = sharedPreferences.getBoolean(name, false);
+        } else {
+            upDateVote();
+        }
         shineButton.setChecked(isVote);
         shineButton.setOnClickListener(this);
         btnGift.setOnClickListener(this);
@@ -252,8 +260,10 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.shine_button:
+                Calendar calendar = Calendar.getInstance();
                 isVote = !isVote;
                 edit.putBoolean(name, isVote);
+                edit.putString("time_"+name, calendar.get(Calendar.DATE) + "-" + calendar.get(Calendar.MONTH));
                 edit.commit();
                 if (isVote){
                     nbLove++;
@@ -301,7 +311,7 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onRewardedVideoAdLoaded() {
-        upDateVote();
+
     }
 
     @Override
@@ -333,7 +343,7 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onRewardedVideoAdLeftApplication() {
-        upDateVote();
+
     }
 
     @Override

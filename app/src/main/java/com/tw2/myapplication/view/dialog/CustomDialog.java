@@ -40,7 +40,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         textView = (TextView) findViewById(R.id.tv_dialog);
 
         Picasso.get().load(image).into(circleImageView);
-        textView.setText("Xem quảng cáo để nhận thêm 1 lượt vote cho " + name);
+        textView.setText(activity.getResources().getString(R.string.txt_videoad) +" "+ name);
 
         findViewById(R.id.btn_dialog_cancel).setOnClickListener(this);
         findViewById(R.id.btn_dialog_ok).setOnClickListener(this);

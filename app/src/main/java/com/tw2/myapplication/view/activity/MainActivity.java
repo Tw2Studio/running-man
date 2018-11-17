@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initPager() {
         FragmentManager manager = getSupportFragmentManager();
-        adapter = new HomeAdapter(manager);
+        adapter = new HomeAdapter(manager, this);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
