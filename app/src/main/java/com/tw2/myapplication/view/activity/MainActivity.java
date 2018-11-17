@@ -67,8 +67,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         tabLayout.setBackgroundResource(R.drawable.tab2);
                         break;
                     case 2:
+                        tabLayout.setBackgroundResource(R.drawable.tab2);
+                        break;
+                    case 3:
                         tabLayout.setBackgroundResource(R.drawable.tab3);
                         break;
+
                 }
             }
         });
@@ -80,9 +84,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn_rank).setOnClickListener(this);
     }
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_rank:
                 Intent intent = new Intent(MainActivity.this, RankActivity.class);
                 startActivity(intent);

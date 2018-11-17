@@ -15,7 +15,8 @@
             android:id="@+id/btn_back_rank"
             android:padding="16dp"/>
 
-        <TextView android:layout_width="match_parent"
+        <TextView android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="16dp"
@@ -23,6 +24,12 @@
             android:textStyle="bold"
             android:textColor="@color/colorNau"
             android:textSize="20dp"/>
+
+        <ImageView android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:src="@drawable/ic_help"
+            android:id="@+id/btn_help"
+            android:padding="16dp"/>
 
     </TableRow>
 

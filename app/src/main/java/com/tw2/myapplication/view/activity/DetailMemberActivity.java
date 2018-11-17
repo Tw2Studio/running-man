@@ -2,6 +2,8 @@ package com.tw2.myapplication.view.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,9 +37,11 @@ import com.squareup.picasso.Picasso;
 import com.tw2.myapplication.R;
 import com.tw2.myapplication.adapter.MemberAdapter;
 import com.tw2.myapplication.model.Member;
+import com.tw2.myapplication.view.dialog.CustomDialog;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class DetailMemberActivity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
@@ -56,6 +60,9 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     private TextView tvInfo1, tvInfo2, tvInfo3, tvInfo4;
     private PublisherAdView mPublisherAdView;
     private PublisherInterstitialAd mPublisherInterstitialAd;
+    private ImageView btnGift;
+    private Member member;
+    private List<Integer> listGift;
 
 
     @Override
@@ -106,11 +113,23 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
         tvInfo2 = (TextView) findViewById(R.id.tv_detail_2);
         tvInfo3 = (TextView) findViewById(R.id.tv_detail_3);
         tvInfo4 = (TextView) findViewById(R.id.tv_detail_4);
+        btnGift = (ImageView) findViewById(R.id.btn_gift);
+
+        listGift = new ArrayList<>();
+        listGift.add(R.drawable.ic_gift_blue);
+        listGift.add(R.drawable.ic_gift_red);
+        listGift.add(R.drawable.ic_gift_yellow);
+        listGift.add(R.drawable.ic_gift_green);
+
+        Random random = new Random();
+
+        btnGift.setImageResource(listGift.get(random.nextInt(listGift.size())));
 
         shineButton.init(this);
         isVote = sharedPreferences.getBoolean(name, false);
         shineButton.setChecked(isVote);
         shineButton.setOnClickListener(this);
+        btnGift.setOnClickListener(this);
     }
 
     private void initData() {
@@ -124,6 +143,7 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
                     nbLove = Integer.parseInt(member.getLove());
                     tvNbLove.setText(member.getLove());
                     getInfo(dataSnapshot.getKey());
+                    DetailMemberActivity.this.member = member;
                 }
             }
 
@@ -229,7 +249,29 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
                 }
 
                 break;
+
+            case R.id.btn_gift:
+                CustomDialog dialog = new CustomDialog(DetailMemberActivity.this, member.getName(), member.getImage());
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.setCancelable(false);
+                dialog.show();
+                break;
         }
+    }
+
+    public void showAd(){
+        if (mPublisherInterstitialAd.isLoaded()) {
+            mPublisherInterstitialAd.show();
+        }
+    }
+
+    public void upDateVote(){
+        isVote=false;
+        edit.putBoolean(name, false);
+        edit.commit();
+        shineButton.setChecked(false);
+        Random random = new Random();
+        btnGift.setImageResource(listGift.get(random.nextInt(listGift.size())));
     }
 
 }

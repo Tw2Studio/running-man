@@ -54,6 +54,14 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         holder.imgRank.setBackgroundResource(list.get(position));
         holder.imgCount.setChecked(true);
         holder.imgCount.setEnabled(false);
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailMemberActivity.class);
+                intent.putExtra("NAME", member.getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -67,12 +75,15 @@ public class RankAdapter extends RecyclerView.Adapter<RankAdapter.ViewHolder> {
         TextView tvrank;
         ImageView imgRank;
         ShineButton imgCount;
+        LinearLayout linearLayout;
+
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = (CircleImageView) itemView.findViewById(R.id.img_avatar_rank);
             tvrank = (TextView) itemView.findViewById(R.id.tv_count_rank);
             imgCount = (ShineButton) itemView.findViewById(R.id.img_count_rank);
             imgRank = (ImageView) itemView.findViewById(R.id.img_rank);
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.container_rank);
         }
     }
 }
