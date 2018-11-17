@@ -1,5 +1,6 @@
 package com.tw2.myapplication.view.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -117,6 +118,7 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.addItemDecoration(dividerItemDecoration);
 
         findViewById(R.id.btn_back_rank).setOnClickListener(this);
+        findViewById(R.id.btn_help).setOnClickListener(this);
     }
 
     @Override
@@ -125,6 +127,11 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_back_rank:
                 onBackPressed();
                 break;
+            case R.id.btn_help:
+                Intent intent = new Intent(RankActivity.this, HelpActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 }

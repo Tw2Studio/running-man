@@ -27,6 +27,9 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherAdView;
 import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,10 +43,11 @@ import com.tw2.myapplication.model.Member;
 import com.tw2.myapplication.view.dialog.CustomDialog;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
-public class DetailMemberActivity extends AppCompatActivity implements View.OnClickListener {
+public class DetailMemberActivity extends AppCompatActivity implements View.OnClickListener, RewardedVideoAdListener {
     private Toolbar toolbar;
     private ShineButton shineButton;
     private SharedPreferences sharedPreferences;
@@ -63,6 +67,8 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     private ImageView btnGift;
     private Member member;
     private List<Integer> listGift;
+    private RewardedVideoAd mRewardedVideoAd;
+    private long timeStart, timeEnd;
 
 
     @Override
@@ -79,9 +85,22 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
         edit=sharedPreferences.edit();
         initToobar();
         initAds();
+        initVideoAds();
         requestAds();
         initView();
         initData();
+    }
+
+    private void initVideoAds() {
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+        loadRewardedVideoAd();
+        mRewardedVideoAd.setImmersiveMode(true);
+    }
+
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd(this.getResources().getString(R.string.video_appotax),
+                new PublisherAdRequest.Builder().build());
     }
 
     private void initAds() {
@@ -274,4 +293,72 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
         btnGift.setImageResource(listGift.get(random.nextInt(listGift.size())));
     }
 
+    public void showVideoAds(){
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        }
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+        upDateVote();
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+        Calendar calendar = Calendar.getInstance();
+        timeStart = calendar.getTimeInMillis();
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Calendar calendar = Calendar.getInstance();
+        timeEnd = calendar.getTimeInMillis();
+
+        if (timeEnd-timeStart>7000){
+            upDateVote();
+        }
+
+        loadRewardedVideoAd();
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+        upDateVote();
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+        upDateVote();
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+    }
+
+    @Override
+    public void onResume() {
+        mRewardedVideoAd.resume(this);
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        mRewardedVideoAd.pause(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mRewardedVideoAd.destroy(this);
+        super.onDestroy();
+    }
 }

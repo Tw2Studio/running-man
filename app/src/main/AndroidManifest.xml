@@ -37,6 +37,9 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".view.activity.RankActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".view.activity.HelpActivity"
+            android:screenOrientation="portrait"/>
+
 
     </application>
 

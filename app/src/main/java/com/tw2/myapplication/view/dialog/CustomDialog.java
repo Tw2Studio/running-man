@@ -54,7 +54,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
                 ((DetailMemberActivity) activity).showAd();
                 break;
             case R.id.btn_dialog_ok:
-                ((DetailMemberActivity) activity).upDateVote();
+                ((DetailMemberActivity) activity).showVideoAds();
                 dismiss();
                 break;
         }
