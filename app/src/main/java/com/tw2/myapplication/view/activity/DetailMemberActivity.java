@@ -22,6 +22,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherAdView;
+import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,8 +54,8 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     private String keyFirebase;
     private BallView ballView;
     private TextView tvInfo1, tvInfo2, tvInfo3, tvInfo4;
-    private AdView banner;
-    private InterstitialAd mInterstitialAd;
+    private PublisherAdView mPublisherAdView;
+    private PublisherInterstitialAd mPublisherInterstitialAd;
 
 
     @Override
@@ -75,27 +78,23 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initAds() {
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5777206290");
-        mInterstitialAd = new InterstitialAd(DetailMemberActivity.this);
-        mInterstitialAd.setAdUnitId(getResources().getString(R.string.banner_full));
-        final AdRequest adRequest = new AdRequest.Builder()
-                .build();
-
-        mInterstitialAd.setAdListener(new AdListener() {
+        mPublisherInterstitialAd = new PublisherInterstitialAd(this);
+        mPublisherInterstitialAd.setAdUnitId(this.getResources().getString(R.string.full_appotax));
+        mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());
+        mPublisherInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                mInterstitialAd.loadAd(adRequest);
+                mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());
             }
+
         });
 
-        mInterstitialAd.loadAd(adRequest);
     }
 
     private void requestAds() {
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5777206290");
-        banner = (AdView) findViewById(R.id.banner_3);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        banner.loadAd(adRequest);
+        mPublisherAdView = findViewById(R.id.publisherAdView);
+        PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
+        mPublisherAdView.loadAd(adRequest);
     }
 
     private void initView() {
@@ -224,33 +223,13 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
                 }
 
                 mReference.child("member").child(keyFirebase).child("love").setValue(nbLove+"");
-                mInterstitialAd.show();
+
+                if (mPublisherInterstitialAd.isLoaded()) {
+                    mPublisherInterstitialAd.show();
+                }
 
                 break;
         }
     }
 
-    @Override
-    public void onPause() {
-        if (banner != null) {
-            banner.pause();
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (banner != null) {
-            banner.resume();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        if (banner != null) {
-            banner.destroy();
-        }
-        super.onDestroy();
-    }
 }

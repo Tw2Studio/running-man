@@ -51,7 +51,6 @@ public class PlayVideoActivity extends YouTubeBaseActivity implements YouTubePla
     private String URL_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId="
             + ID_PLAYLIST + "&key=" + Utils.KEY_YOUTUBE;
 
-    private AdView banner;
     private DatabaseReference mReference;
 
     @Override
@@ -63,7 +62,6 @@ public class PlayVideoActivity extends YouTubeBaseActivity implements YouTubePla
         }
         Intent intent = getIntent();
         idVideo = intent.getStringExtra("ID_VIDEO");
-        requestAds();
         mReference = FirebaseDatabase.getInstance().getReference();
         initData();
         //getJsonYouTube(URL_PLAYLIST);
@@ -74,12 +72,6 @@ public class PlayVideoActivity extends YouTubeBaseActivity implements YouTubePla
         return idVideo;
     }
 
-    private void requestAds() {
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5777206290");
-        banner = (AdView) findViewById(R.id.banner_2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        banner.loadAd(adRequest);
-    }
 
     private void initData() {
 
@@ -248,27 +240,4 @@ public class PlayVideoActivity extends YouTubeBaseActivity implements YouTubePla
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
-    public void onPause() {
-        if (banner != null) {
-            banner.pause();
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (banner != null) {
-            banner.resume();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        if (banner != null) {
-            banner.destroy();
-        }
-        super.onDestroy();
-    }
 }

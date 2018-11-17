@@ -13,6 +13,8 @@ import android.view.View;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherAdView;
 import com.tw2.myapplication.R;
 import com.tw2.myapplication.adapter.HomeAdapter;
 
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private HomeAdapter adapter;
     private TabLayout tabLayout;
-    private AdView banner;
+    private PublisherAdView mPublisherAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void requestAds() {
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5702904275");
-        banner = (AdView) findViewById(R.id.banner);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        banner.loadAd(adRequest);
+        mPublisherAdView = findViewById(R.id.publisherAdView);
+        PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
+        mPublisherAdView.loadAd(adRequest);
     }
 
     private void initPager() {
@@ -79,31 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn_rank).setOnClickListener(this);
     }
-
-    @Override
-    public void onPause() {
-        if (banner != null) {
-            banner.pause();
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (banner != null) {
-            banner.resume();
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        if (banner != null) {
-            banner.destroy();
-        }
-        super.onDestroy();
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){

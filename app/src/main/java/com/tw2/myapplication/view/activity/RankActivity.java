@@ -13,6 +13,8 @@ import android.view.View;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherAdView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +35,7 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     private List<Member> list;
     private RankAdapter adapter;
     private DatabaseReference mReference;
-    private AdView banner;
+    private PublisherAdView mPublisherAdView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,10 +51,11 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void requestAds() {
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5777206290");
-        banner = (AdView) findViewById(R.id.banner_4);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        banner.loadAd(adRequest);
+        mPublisherAdView = findViewById(R.id.publisherAdView);
+        PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
+        mPublisherAdView.loadAd(adRequest);
+
+
     }
 
     private void initData() {

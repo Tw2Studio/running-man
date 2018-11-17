@@ -150,14 +150,14 @@
         lib:movement_cycle_time="1500"
         lib:size_cycle_time="500" />
 
-    <com.google.android.gms.ads.AdView
+    <com.google.android.gms.ads.doubleclick.PublisherAdView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
         android:layout_alignParentBottom="true"
-        android:id="@+id/banner_3"
-        ads:adUnitId="@string/banner_id_5">
+        ads:adSize="BANNER"
+        android:id="@+id/publisherAdView"
+        ads:adUnitId="@string/banner_appotax">
 
-    </com.google.android.gms.ads.AdView>
+    </com.google.android.gms.ads.doubleclick.PublisherAdView>
 
 </RelativeLayout>
