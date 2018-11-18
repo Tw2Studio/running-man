@@ -4,28 +4,43 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.tw2.myapplication.R;
 import com.tw2.myapplication.adapter.GifAdapter;
+import com.tw2.myapplication.adapter.GuestAdapter;
+import com.tw2.myapplication.model.Gif;
+import com.tw2.myapplication.model.Guest;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class GifFragment extends Fragment {
     private View view;
-    private List<String> list;
+    private List<Gif> list;
     private RecyclerView recyclerView;
     private GifAdapter adapter;
+    private DatabaseReference mReference;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_gif, container, false);
+        mReference = FirebaseDatabase.getInstance().getReference();
         initView();
         initData();
         return view;
@@ -33,27 +48,52 @@ public class GifFragment extends Fragment {
 
     private void initData() {
         list = new ArrayList<>();
-
-        list.add("http://mediaold.tiin.vn:8080/media_old_2016//archive/images/2016/12/18/112241_17.gif");
-        list.add("https://media.giphy.com/media/jYwkNLtqUScHm/giphy.gif");
-        list.add("https://media.giphy.com/media/NjOSCCItRX0d2/giphy.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
-        list.add("http://images6.fanpop.com/image/photos/34500000/Monday-couple-running-man-34584716-500-227.gif");
+        list.clear();
+        if (adapter!=null){
+            adapter.notifyDataSetChanged();
+        }
 
         adapter = new GifAdapter(list, getContext());
         recyclerView.setAdapter(adapter);
+
+        mReference.child("gif").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String image = dataSnapshot.getValue(String.class);
+                Gif gif = new Gif(image, dataSnapshot.getKey());
+                list.add(gif);
+
+                Collections.sort(list, new Comparator<Gif>() {
+                    @Override
+                    public int compare(final Gif object1, final Gif object2) {
+                        return Integer.parseInt(object2.getId()) - Integer.parseInt(object1.getId());
+                    }
+                });
+
+                adapter = new GifAdapter(list, getContext());
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 

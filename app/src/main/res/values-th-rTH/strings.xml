@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">RM</string>
+    <!--<string name="banner_id_1">ca-app-pub-2328589623882503/6020748870</string>-->
+    <string name="banner_id_1">ca-app-pub-2328589623882503/3516329879</string>
+    <!--<string name="banner_id_2">ca-app-pub-2328589623882503/9749731589</string>-->
+    <string name="banner_id_5">ca-app-pub-2328589623882503/4087175513</string>
+    <!--<string name="banner_id_3">ca-app-pub-2328589623882503/4484020511</string>-->
+    <string name="banner_id_3">ca-app-pub-2328589623882503/9507023155</string>
+
+    <string name="banner_full">ca-app-pub-2328589623882503/6780201705</string>
+
+    <string name="banner_appotax">/21617015150/5188250/21767195692</string>
+
+    <string name="full_appotax">/21617015150/5188250/21767232374</string>
+
+    <string name="video_appotax">/21617015150/5188250/21767295766</string>
+
+    <!--Tab main-->
+    <string name="txt_thanhvien">สมาชิก</string>
+    <string name="txt_gif_hay">Gif</string>
+    <string name="txt_khachmoi">แขกที่ได้รับเชิญ</string>
+    <string name="txt_video">วีดีโอ</string>
+
+    <!--Khach moi-->
+
+    <string name="txt_ep">ตอน</string>
+
+    <!--Rank screen-->
+    <string name="txt_bxh">ชาร์ตที่ชื่นชอบ</string>
+    <string name="txt_huongdan">คู่มือการออกเสียง</string>
+    <string name="txt_huongdan_1">- คลิกที่หน้าจอข้อมูลของสมาชิกแต่ละคน</string>
+    <string name="txt_huongdan_2">- คลิกที่หัวใจเพื่อลงคะแนน</string>
+    <string name="txt_huongdan_3">- ทุกๆวันในแอปพลิเคชันคุณจะมี 1 คะแนน</string>
+    <string name="txt_huongdan_4">- คุณยังได้รับคะแนนมากขึ้นเมื่อคลิกที่กล่องของขวัญและดูโฆษณา</string>
+    <string name="txt_huongdan_5">(เวลาในการดูโฆษณาต้องมากกว่า 7 วินาที)</string>
+
+    <!--Video Ads-->
+
+    <string name="txt_videoad">ดูโฆษณาเพื่อรับโหวตอีก 1 ครั้งสำหรับ</string>
+    <string name="txt_btn_huy">ยกเลิก</string>
+    <string name="txt_btn_ok">ตกลง</string>
+
+
+</resources>

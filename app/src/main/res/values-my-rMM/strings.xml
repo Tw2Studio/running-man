@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">RM</string>
+    <!--<string name="banner_id_1">ca-app-pub-2328589623882503/6020748870</string>-->
+    <string name="banner_id_1">ca-app-pub-2328589623882503/3516329879</string>
+    <!--<string name="banner_id_2">ca-app-pub-2328589623882503/9749731589</string>-->
+    <string name="banner_id_5">ca-app-pub-2328589623882503/4087175513</string>
+    <!--<string name="banner_id_3">ca-app-pub-2328589623882503/4484020511</string>-->
+    <string name="banner_id_3">ca-app-pub-2328589623882503/9507023155</string>
+
+    <string name="banner_full">ca-app-pub-2328589623882503/6780201705</string>
+
+    <string name="banner_appotax">/21617015150/5188250/21767195692</string>
+
+    <string name="full_appotax">/21617015150/5188250/21767232374</string>
+
+    <string name="video_appotax">/21617015150/5188250/21767295766</string>
+
+    <!--Tab main-->
+    <string name="txt_thanhvien">အဖှဲ့ဝငျ</string>
+    <string name="txt_gif_hay">Gif</string>
+    <string name="txt_khachmoi">ဧည့်သည်များ</string>
+    <string name="txt_video">ဗီဒီယိုက</string>
+
+    <!--Khach moi-->
+
+    <string name="txt_ep">အပိုင်း</string>
+
+    <!--Rank screen-->
+    <string name="txt_bxh">ဇယားအကြိုက်ဆုံး</string>
+    <string name="txt_huongdan">မဲကိုလမ်းညွှန်</string>
+    <string name="txt_huongdan_1">- တစ်ဦးချင်းစီအဖွဲ့ဝင်တစ်ဦး၏သတင်းအချက်အလက်ဖန်သားပြင်ပေါ်တွင်ကလစ်နှိပ်ပါ</string>
+    <string name="txt_huongdan_2">- မဲဖို့နှလုံးပေါ်တွင်ကလစ်နှိပ်ပါ</string>
+    <string name="txt_huongdan_3">- app ကိုအပေါ်တစ်ခုချင်းစီနေ့၌သင်တို့အား 1 မဲရပါလိမ့်မယ်</string>
+    <string name="txt_huongdan_4">- ထို့ပြင်သင်တို့သည်လည်းဆုကြေးဇူးကို box ကို click နှိပ်ပြီးကြော်ငြာတွေကြည့်ရှုရန်မဲထည့်သွင်းနိုင်ပါတယ်</string>
+    <string name="txt_huongdan_5">(ကြော်ငြာကြည့်ရှုအချိန် 7 စက္ကန့်ရေတွက်ပါလိမ့်မည်ထက် သာ. ကြီးမြတ်ဖြစ်ရမည်)</string>
+
+    <!--Video Ads-->
+
+    <string name="txt_videoad">ပိုမို 1 မဲများအတွက်ကြော်ငြာကိုကြည့်ပါ</string>
+    <string name="txt_btn_huy">CANCEL</string>
+    <string name="txt_btn_ok">OK</string>
+
+
+</resources>

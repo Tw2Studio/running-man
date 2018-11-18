@@ -16,28 +16,28 @@
     <string name="video_appotax">/21617015150/5188250/21767295766</string>
 
     <!--Tab main-->
-    <string name="txt_thanhvien">Thành viên</string>
+    <string name="txt_thanhvien">Member</string>
     <string name="txt_gif_hay">Gif</string>
-    <string name="txt_khachmoi">Khách mời</string>
+    <string name="txt_khachmoi">Guests</string>
     <string name="txt_video">Video</string>
 
     <!--Khach moi-->
 
-    <string name="txt_ep">Tập</string>
+    <string name="txt_ep">Ep</string>
 
     <!--Rank screen-->
-    <string name="txt_bxh">Bảng xếp hạng yêu thích</string>
-    <string name="txt_huongdan">Hướng dẫn vote</string>
-    <string name="txt_huongdan_1">- Click vào màn hình thông tin của mỗi thành viên</string>
-    <string name="txt_huongdan_2">- Click vào hình trái tim để vote</string>
-    <string name="txt_huongdan_3">- Mỗi ngày vào app bạn sẽ có 1 lượt vote</string>
-    <string name="txt_huongdan_4">- Ngoài ra bạn cũng có thêm lượt vote khi nhấn vào nút hộp quà và xem quảng cáo</string>
-    <string name="txt_huongdan_5">(Thời gian xem quảng cáo phải lớn hơn 7 giây mới được tính)</string>
+    <string name="txt_bxh">Leaderboards</string>
+    <string name="txt_huongdan">Guide to vote</string>
+    <string name="txt_huongdan_1">- Click on the information screen of each member</string>
+    <string name="txt_huongdan_2">- Click on the heart to vote</string>
+    <string name="txt_huongdan_3">- Every day on the app you will have 1 vote</string>
+    <string name="txt_huongdan_4">- You also get more votes when click on the gift box and see the ads</string>
+    <string name="txt_huongdan_5">(Ad view time must be greater than 7 seconds to be counted)</string>
 
     <!--Video Ads-->
 
-    <string name="txt_videoad">Xem quảng cáo để nhận thêm 1 lượt vote cho</string>
-    <string name="txt_btn_huy">HỦY</string>
+    <string name="txt_videoad">View ad to get 1 more vote for</string>
+    <string name="txt_btn_huy">CANCEL</string>
     <string name="txt_btn_ok">OK</string>
 
 

@@ -2,10 +2,12 @@ package com.tw2.myapplication.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.tw2.myapplication.R;
+import com.tw2.myapplication.model.Gif;
 import com.tw2.myapplication.model.Member;
 import com.tw2.myapplication.view.activity.DetailMemberActivity;
 
@@ -22,10 +25,10 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
-    private List<String> data = new ArrayList<>();
+    private List<Gif> data = new ArrayList<>();
     private Context context;
 
-    public GifAdapter(List<String> data, Context context) {
+    public GifAdapter(List<Gif> data, Context context) {
         this.data = data;
         this.context = context;
     }
@@ -39,8 +42,10 @@ public class GifAdapter extends RecyclerView.Adapter<GifAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final String link = data.get(position);
-        Glide.with(context).load(link).into(holder.imageView);
+        final String link = data.get(position).getImage();
+        if (link!=null) {
+            Glide.with(context).load(link).into(holder.imageView);
+        }
     }
 
     @Override

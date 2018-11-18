@@ -13,6 +13,8 @@ import com.squareup.picasso.Picasso;
 import com.tw2.myapplication.R;
 import com.tw2.myapplication.view.activity.DetailMemberActivity;
 
+import java.util.Random;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CustomDialog extends Dialog implements View.OnClickListener {
@@ -51,7 +53,11 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         switch (v.getId()){
             case R.id.btn_dialog_cancel:
                 dismiss();
-                ((DetailMemberActivity) activity).showAd();
+                Random random = new Random();
+                int nbShow = random.nextInt(3);
+                if (nbShow==1) {
+                    ((DetailMemberActivity) activity).showAd();
+                }
                 break;
             case R.id.btn_dialog_ok:
                 ((DetailMemberActivity) activity).showVideoAds();

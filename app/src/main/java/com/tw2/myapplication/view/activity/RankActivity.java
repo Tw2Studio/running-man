@@ -62,6 +62,9 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
     private void initData() {
         list = new ArrayList<>();
         list.clear();
+        if (adapter!=null){
+            adapter.notifyDataSetChanged();
+        }
 
         mReference.child("member").addChildEventListener(new ChildEventListener() {
             @Override
