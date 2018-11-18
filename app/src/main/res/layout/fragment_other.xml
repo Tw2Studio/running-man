@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</LinearLayout>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:background="@drawable/bg_other_1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:civ_border_color="@color/colorNau"
+                app:civ_border_width="2dp"
+                android:src="@drawable/image"/>
+
+            <TextView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:layout_marginLeft="16dp"
+                android:textSize="22dp"
+                android:textColor="@color/colorNau"
+                android:textStyle="bold"
+                android:text="Đánh giá ứng dụng"/>
+
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="@drawable/bg_other_1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:civ_border_color="@color/colorNau"
+                app:civ_border_width="2dp"
+                android:src="@drawable/image"/>
+
+            <TextView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:layout_marginLeft="16dp"
+                android:textSize="22dp"
+                android:textColor="@color/colorNau"
+                android:textStyle="bold"
+                android:text="Phản hồi, góp ý"/>
+
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="@drawable/bg_other_1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:civ_border_color="@color/colorNau"
+                app:civ_border_width="2dp"
+                android:src="@drawable/image"/>
+
+            <TextView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:layout_marginLeft="16dp"
+                android:textSize="22dp"
+                android:textColor="@color/colorNau"
+                android:textStyle="bold"
+                android:text="Ứng dụng khác"/>
+
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:background="@drawable/bg_other_1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                app:civ_border_color="@color/colorNau"
+                app:civ_border_width="2dp"
+                android:src="@drawable/image"/>
+
+            <TextView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:layout_marginLeft="16dp"
+                android:textSize="22dp" />
+
+        </TableRow>
+
+
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
