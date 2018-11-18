@@ -9,6 +9,7 @@ import com.tw2.myapplication.R;
 import com.tw2.myapplication.view.fragment.GifFragment;
 import com.tw2.myapplication.view.fragment.GuestFragment;
 import com.tw2.myapplication.view.fragment.HomeMemberFragment;
+import com.tw2.myapplication.view.fragment.OtherFragment;
 import com.tw2.myapplication.view.fragment.VideoFragment;
 
 public class HomeAdapter extends FragmentStatePagerAdapter {
@@ -16,7 +17,7 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
 
     public HomeAdapter(FragmentManager fm, Context context) {
         super(fm);
-        this.context =context;
+        this.context = context;
     }
 
     @Override
@@ -27,13 +28,14 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
                 frag = new HomeMemberFragment();
                 break;
             case 1:
-                frag = new GifFragment();
-                break;
-            case 2:
                 frag = new GuestFragment();
                 break;
-            case 3:
+            case 2:
                 frag = new VideoFragment();
+                break;
+
+            case 3:
+                frag = new OtherFragment();
                 break;
 
 
@@ -54,14 +56,15 @@ public class HomeAdapter extends FragmentStatePagerAdapter {
                 title = context.getResources().getString(R.string.txt_thanhvien);
                 break;
             case 1:
-                title = context.getResources().getString(R.string.txt_gif_hay);
-                break;
-            case 2:
                 title = context.getResources().getString(R.string.txt_khachmoi);
                 break;
-            case 3:
+            case 2:
                 title = context.getResources().getString(R.string.txt_video);
                 break;
+            case 3:
+                title = context.getResources().getString(R.string.txt_khac);
+                break;
+
 
         }
 

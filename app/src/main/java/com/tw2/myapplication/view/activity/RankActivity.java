@@ -88,12 +88,27 @@ public class RankActivity extends AppCompatActivity implements View.OnClickListe
                     recyclerView.setLayoutManager(layoutManager);
                     //ballView.setVisibility(View.GONE);
                     recyclerView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
                 }
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                initData();
+                if (Integer.parseInt(dataSnapshot.getKey()) < 9) {
+                    Member member = dataSnapshot.getValue(Member.class);
+                    for (int i=0;i<list.size();i++){
+                        if (list.get(i).getName().equals(member.getName())){
+                            list.set(i, member);
+                            Collections.sort(list, new Comparator<Member>() {
+                                @Override
+                                public int compare(final Member object1, final Member object2) {
+                                    return Integer.parseInt(object2.getLove()) - Integer.parseInt(object1.getLove());
+                                }
+                            });
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
             }
 
             @Override
