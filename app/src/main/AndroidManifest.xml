@@ -40,6 +40,11 @@
         <activity android:name=".view.activity.HelpActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".view.activity.AppOtherActivity"
+            android:screenOrientation="portrait"/>
+
+
+
 
     </application>
 

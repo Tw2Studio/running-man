@@ -41,5 +41,19 @@
     <string name="txt_btn_huy">CANCEL</string>
     <string name="txt_btn_ok">OK</string>
 
+    <!--Other screen-->
+    <string name="txt_btn_cong_dong">Community</string>
+    <string name="txt_btn_danh_gia">App reviews</string>
+    <string name="txt_btn_phan_hoi">Feedback, suggestions</string>
+    <string name="txt_btn_ung_dung">More applications</string>
+
+    <!--App Other-->
+    <string name="txt_cung_nha_phat_trien">Same developer</string>
+    <string name="txt_ten_ung_dung">BTS HD+ wallpaper</string>
+    <string name="txt_cai_dat">Install</string>
+
+    <!--Dialog cong dong-->
+    <string name="txt_title_dialog_congdong">Sorry</string>
+    <string name="txt_content_dialog_congdong">The feature is under development and will be available in the next update.</string>
 
 </resources>

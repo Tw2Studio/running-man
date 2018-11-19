@@ -42,4 +42,20 @@
     <string name="txt_btn_ok">OK</string>
 
 
+    <!--Other screen-->
+    <string name="txt_btn_cong_dong">Cộng đồng</string>
+    <string name="txt_btn_danh_gia">Đánh giá ứng dụng</string>
+    <string name="txt_btn_phan_hoi">Phản hồi, góp ý</string>
+    <string name="txt_btn_ung_dung">Ứng dụng khác</string>
+
+    <!--App Other-->
+    <string name="txt_cung_nha_phat_trien">Cùng nhà phát triển</string>
+    <string name="txt_ten_ung_dung">Hình nền BTS HD+</string>
+    <string name="txt_cai_dat">Cài đặt</string>
+
+
+    <!--Dialog cong dong-->
+    <string name="txt_title_dialog_congdong">Xin lỗi</string>
+    <string name="txt_content_dialog_congdong">Tính năng đang được phát triển và sẽ có trong bản cập nhật tiếp theo.</string>
+
 </resources>

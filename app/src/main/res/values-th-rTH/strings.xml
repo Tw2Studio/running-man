@@ -41,5 +41,20 @@
     <string name="txt_btn_huy">ยกเลิก</string>
     <string name="txt_btn_ok">ตกลง</string>
 
+    <!--Other screen-->
+    <string name="txt_btn_cong_dong">ชุมชน</string>
+    <string name="txt_btn_danh_gia">รีวิวแอป</string>
+    <string name="txt_btn_phan_hoi">ข้อเสนอแนะข้อเสนอแนะ</string>
+    <string name="txt_btn_ung_dung">แอพพลิเคชันเพิ่มเติม</string>
+
+    <!--App Other-->
+    <string name="txt_cung_nha_phat_trien">นักพัฒนาซอฟต์แวร์คนเดียวกัน</string>
+    <string name="txt_ten_ung_dung">BTS HD + วอลเปเปอร์</string>
+    <string name="txt_cai_dat">ติดตั้ง</string>
+
+    <!--Dialog cong dong-->
+    <string name="txt_title_dialog_congdong">ขอโทษ</string>
+    <string name="txt_content_dialog_congdong">คุณลักษณะนี้อยู่ภายใต้การพัฒนาและจะพร้อมใช้งานในการปรับปรุงครั้งต่อไป</string>
+
 
 </resources>

@@ -41,5 +41,20 @@
     <string name="txt_btn_huy">CANCEL</string>
     <string name="txt_btn_ok">OK</string>
 
+    <!--Other screen-->
+    <string name="txt_btn_cong_dong">အဝန်း</string>
+    <string name="txt_btn_danh_gia">App ကိုပြန်လည်သုံးသပ်ခြင်း</string>
+    <string name="txt_btn_phan_hoi">တုံ့ပြန်ချက်, အကြံပေးချက်များ</string>
+    <string name="txt_btn_ung_dung">ပိုများသော applications များ</string>
+
+    <!--App Other-->
+    <string name="txt_cung_nha_phat_trien">တူညီတဲ့ developer</string>
+    <string name="txt_ten_ung_dung">BTS HD + နောက်ခံပုံများ</string>
+    <string name="txt_cai_dat">Install</string>
+
+    <!--Dialog cong dong-->
+    <string name="txt_title_dialog_congdong">စိတ်မကောင်းပါဘူး</string>
+    <string name="txt_content_dialog_congdong">အဆိုပါအင်္ဂါရပ်ဖှံ့ဖွိုးတိုးတနှစ်အောက်ဖြစ်ပြီးလာမယ့် update ကိုရရှိနိုင်ပါလိမ့်မည်။</string>
+
 
 </resources>
