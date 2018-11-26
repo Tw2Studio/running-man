@@ -51,6 +51,43 @@
                 android:layout_width="84dp"
                 android:layout_height="84dp"
                 android:padding="16dp"
+                android:src="@drawable/ic_call_me" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:text="Running man call me"
+                android:textColor="@color/colorNau"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btn_install_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/bg_btn_ok"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_cai_dat" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:padding="16dp"
                 android:src="@drawable/icon_app_bts" />
 
             <TextView
@@ -78,19 +115,56 @@
                 android:text="@string/txt_cai_dat" />
 
         </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:padding="16dp"
+                android:src="@drawable/ic_loveme" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:text="BTS Love me ?"
+                android:textColor="@color/colorNau"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btn_install_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/bg_btn_ok"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_cai_dat" />
+
+        </TableRow>
+
 
     </LinearLayout>
 
-
-    <com.google.android.gms.ads.doubleclick.PublisherAdView
-        android:id="@+id/publisherAdView"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_appotax">
+        ads:adUnitId="@string/banner_id_5">
 
-    </com.google.android.gms.ads.doubleclick.PublisherAdView>
+    </com.google.android.gms.ads.AdView>
 
 
 </LinearLayout>

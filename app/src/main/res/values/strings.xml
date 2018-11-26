@@ -1,19 +1,10 @@
 <resources>
     <string name="app_name">RM</string>
-    <!--<string name="banner_id_1">ca-app-pub-2328589623882503/6020748870</string>-->
-    <string name="banner_id_1">ca-app-pub-2328589623882503/3516329879</string>
-    <!--<string name="banner_id_2">ca-app-pub-2328589623882503/9749731589</string>-->
     <string name="banner_id_5">ca-app-pub-2328589623882503/4087175513</string>
-    <!--<string name="banner_id_3">ca-app-pub-2328589623882503/4484020511</string>-->
-    <string name="banner_id_3">ca-app-pub-2328589623882503/9507023155</string>
 
     <string name="banner_full">ca-app-pub-2328589623882503/6780201705</string>
 
-    <string name="banner_appotax">/21617015150/5188250/21767195692</string>
-
-    <string name="full_appotax">/21617015150/5188250/21767232374</string>
-
-    <string name="video_appotax">/21617015150/5188250/21767295766</string>
+    <string name="ads_video">ca-app-pub-2328589623882503/2026103820</string>
 
     <!--Tab main-->
     <string name="txt_thanhvien">Thành viên</string>

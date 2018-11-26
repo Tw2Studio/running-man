@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager viewPager;
     private HomeAdapter adapter;
     private TabLayout tabLayout;
-    private PublisherAdView mPublisherAdView;
+    private AdView banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void requestAds() {
-        mPublisherAdView = findViewById(R.id.publisherAdView);
-        PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
-        mPublisherAdView.loadAd(adRequest);
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5777206290");
+        banner = (AdView) findViewById(R.id.banner);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        banner.loadAd(adRequest);
     }
 
     private void initPager() {
@@ -92,5 +93,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, RankActivity.class);
                 startActivity(intent);
         }
+    }
+
+    @Override
+    public void onPause() {
+        if (banner != null) {
+            banner.pause();
+        }
+        super.onPause();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (banner != null) {
+            banner.resume();
+        }
+    }
+    @Override
+    public void onDestroy() {
+        if (banner != null) {
+            banner.destroy();
+        }
+        super.onDestroy();
     }
 }

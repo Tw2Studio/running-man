@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,9 +22,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
-import com.google.android.gms.ads.doubleclick.PublisherAdView;
-import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
@@ -62,8 +57,8 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     private String keyFirebase;
     private BallView ballView;
     private TextView tvInfo1, tvInfo2, tvInfo3, tvInfo4;
-    private PublisherAdView mPublisherAdView;
-    private PublisherInterstitialAd mPublisherInterstitialAd;
+    private AdView banner;
+    private InterstitialAd mInterstitialAd;
     private ImageView btnGift;
     private Member member;
     private List<Integer> listGift;
@@ -100,18 +95,18 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd(this.getResources().getString(R.string.video_appotax),
-                new PublisherAdRequest.Builder().build());
+        mRewardedVideoAd.loadAd(this.getResources().getString(R.string.ads_video),
+                new AdRequest.Builder().build());
     }
 
     private void initAds() {
-        mPublisherInterstitialAd = new PublisherInterstitialAd(this);
-        mPublisherInterstitialAd.setAdUnitId(this.getResources().getString(R.string.full_appotax));
-        mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());
-        mPublisherInterstitialAd.setAdListener(new AdListener() {
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(this.getResources().getString(R.string.banner_full));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
 
         });
@@ -119,9 +114,10 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void requestAds() {
-        mPublisherAdView = findViewById(R.id.publisherAdView);
-        PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
-        mPublisherAdView.loadAd(adRequest);
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-2328589623882503~5777206290");
+        banner = (AdView) findViewById(R.id.banner);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        banner.loadAd(adRequest);
     }
 
     private void initView() {
@@ -273,8 +269,8 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
 
                 mReference.child("member").child(keyFirebase).child("love").setValue(nbLove+"");
 
-                if (mPublisherInterstitialAd.isLoaded()) {
-                    mPublisherInterstitialAd.show();
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
                 }
 
                 break;
@@ -289,8 +285,8 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
     }
 
     public void showAd(){
-        if (mPublisherInterstitialAd.isLoaded()) {
-            mPublisherInterstitialAd.show();
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
         }
     }
 
@@ -356,19 +352,29 @@ public class DetailMemberActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onResume() {
+        if (banner != null) {
+            banner.resume();
+        }
         mRewardedVideoAd.resume(this);
         super.onResume();
     }
 
     @Override
     public void onPause() {
+        if (banner != null) {
+            banner.pause();
+        }
         mRewardedVideoAd.pause(this);
         super.onPause();
     }
 
     @Override
     public void onDestroy() {
+        if (banner != null) {
+            banner.destroy();
+        }
         mRewardedVideoAd.destroy(this);
         super.onDestroy();
     }
+
 }
